@@ -1,13 +1,3 @@
-/* WEB PAGE HEADER REQUIREMENTS (IN ORDER)
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script src="js/jquery.google.spreadsheet.min.js"></script>
-*/
-
-/* WEB PAGE BODY SCRIPT REQUIREMENTS
-<script type="text/javascript" src="js/BrokeAssSpy.js"></script>
-*/
-
 // DATABASE LINKS
 var roomsLink = 'https://docs.google.com/spreadsheets/d/1xr_9aapefMS8-lSrSAFqIWs6pUU0IwDRYYvuzo3LMrY/pub?output=html&gid=348270078'
 var missionLink = 'https://docs.google.com/spreadsheets/d/1xr_9aapefMS8-lSrSAFqIWs6pUU0IwDRYYvuzo3LMrY/pub?output=html&gid=0';
