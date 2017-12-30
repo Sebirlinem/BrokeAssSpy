@@ -6,6 +6,10 @@ var missionData = '';
 var gadgetData = '';
 var trainerData = '';
 
+var teamOneSelected = '';
+var teamTwoSelected = '';
+var teamThreeSelected = '';
+
 var roomsHeadings = '<tr><th>Front Room</th><th>Points</th><th>Back Room</th><th>Points</th></tr>';
 var roomsDetails = '';
 
@@ -43,15 +47,16 @@ function prepareRooms() {
 	for (i = 1; i < 6; i++) { // IMPORTANT: this should be updated to allow dynamic handling of how many options are available
 		var row = roomsData[i];
 		var front = row.Front;
-		var frontRoomName = front.spilt('(')[0];
-		var frontRoomPoints = front.split('(')[1][0];
-		var back = row.Back;
-		var backRoomName = back.spilt('(')[0];
-		var backRoomPoints = back.split('(')[1][0];
-		/*var frontRoomName = roomsData[i].Front.spilt('(')[0];
-		var frontRoomPoints = roomsData[i].Front.split('(')[1][0];
-		var backRoomName = roomsData[i].Back.spilt('(')[0];
-		var backRoomPoints = roomsData[i].Back.split('(')[1][0];*/
+		var frontRoom = front.spilt(' ');
+		var frontRoomName = frontRoom[0];
+		var frontRoomPoints = frontRoom[1][1];
+		var backRoom = row.Back;
+		var backRoomName = backRoom.spilt(' ')[0];
+		var backRoomPoints = backRoom.split(' ')[1][1];
+		/*var frontRoomName = roomsData[i].Front.spilt(' ')[0];
+		var frontRoomPoints = roomsData[i].Front.split(' ')[1][1];
+		var backRoomName = roomsData[i].Back.spilt(' ')[0];
+		var backRoomPoints = roomsData[i].Back.split(' ')[1][1];*/
 		console.log('front room: ' + frontRoomName + ' points: ' + frontRoomPoints + ', back room: ' + backRoomName + 'points: ' + backRoomPoints);
 		roomsDetails += '<tr><td>' + frontRoomName + '</td><td>' + frontRoomPoints + '</td><td><button id="1_F' + i + '" class="teamOneBtn">' + teamOneName + '</button><button id="2_F' + i + '" class="teamTwoBtn">' + teamTwoName + '</button><button id="3_F' + i + '" class="teamThreeBtn">' + teamThreeName + '</button></td><td>' + backRoomName + '</button></td><td>' + backRoomPoints + '</td><td><button id="1_B' + i + '" class="teamOneBtn">' + teamOneName + '</button><button id="2_B' + i + '" class="teamTwoBtn">' + teamTwoName + '</button><button id="3_B' + i + '" class="teamThreeBtn">' + teamThreeName + '</button></td></tr>';
 	};
@@ -144,17 +149,17 @@ $('#setTeamNames').on('click touch', function() {
 
 // Set selected rooms
 $('.teamOneBtn').on('click touch', function() {
-	var teamOneSelected = $(this).id();
+	teamOneSelected = $(this).id();
 	teamOneSelected = teamOneSelected.split('_')[1];
 });
 
 $('.teamTwoBtn').on('click touch', function() {
-	var teamTwoSelected = $(this).id();
+	teamTwoSelected = $(this).id();
 	teamTwoSelected = teamTwoSelected.split('_')[1];
 });
 
 $('.teamThreeBtn').on('click touch', function() {
-	var teamThreeSelected = $(this).id();
+	teamThreeSelected = $(this).id();
 	teamThreeSelected = teamThreeSelected.split('_')[1];
 });
 
