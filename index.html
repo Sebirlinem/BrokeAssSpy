@@ -2,10 +2,9 @@
 <html>
 	<head>
 		<title>Broke Ass Spy School</title>
-		<link rel="stylesheet" href="css/main.css">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-		<script type="text/javascript" src="js/jquery.google.spreadsheet.min.js"></script>
+		<script type="text/javascript" src="js/Broke Ass Spy School.json"></script>
 	</head>
 	
 	<body>
@@ -14,6 +13,7 @@
 			<p>Instruction text here.</p>
 			<button id="startButton">Press to Begin</button>
 		</div>
+
 		<div id="playersPage" style="display:none;">
 			<h2>Teams</h2>
 			<p>Instruction text here.</p>
@@ -21,52 +21,51 @@
 			<input type="text" name="Team Two Name" id="teamTwoNameInput">
 			<input type="text" name="Team Three Name" id="teamThreeNameInput">
 			<img src="img/progression_1.png"> <!-- progression bar image -->
-			<button id="teamProgress">Next</button>
+			<button id="setTeamNames">Next</button>
 		</div>
+
 		<div id="roomsPage" style="display:none;">
 			<h2>Rooms</h2>
 			<p>Instruction text here.</p>
 			<table id="roomsTable"></table>
 			<img src="img/progression_2.png"> <!-- progression bar image -->
-			<button id="roomProgress">Next</button>
+			<button id="setTeamRooms">Next</button>
 		</div>
+
 		<div id="missionsPage" style="display:none;">
 			<h2>Missions</h2>
 			<div>
 				<h3>Break-In Mission</h3>
 				<p>Instruction text here.</p>
+				<select name="stageOneTeam" id="stageOneTeamSelect" class="stageTeamSelect"></select>
 				<img src="img/dice.png" id="stageOneDice">
 				<p id="stadeOneDescription"></p>
 			</div>
 			<div>
 				<h3>Retrieve Mission</h3>
 				<p>Instruction text here.</p>
+				<select name="stageTwoTeam" id="stageTwoTeamSelect" class="stageTeamSelect"></select>
 				<img src="img/dice.png" id="stageTwoDice">
 				<p id="stadeTwoDescription"></p>
 			</div>
 			<div>
 				<h3>Escape Mission</h3>
 				<p>Instruction text here.</p>
+				<select name="stageThreeTeam" id="stageThreeTeamSelect" class="stageTeamSelect"></select>
 				<img src="img/dice.png" id="stageThreeDice">
 				<p id="stadeThreeDescription"></p>
 			</div>
 			<img src="img/progression_3.png"> <!-- progression bar image -->
-			<button id="missionProgress">Next</button>
+			<button id="setTeamMissions">Next</button>
 		</div>
+
 		<div id="gadgetPage" style="display:none;">
 			<h2>Gadgets</h2>
-			<div>
-				<table id="stageOneTable"></table>
-			</div>
-			<div>
-				<table id="stageTwoTable"></table>
-			</div>
-			<div>
-				<table id="stageThreeTable"></table>
-			</div>
+			<table id="gadgetTable"></table>
 			<img src="img/progression_4.png"> <!-- progression bar image -->
 			<button id="gadgetProgress">Next</button>
 		</div>
+
 		<div id="getPage" style="display:none;">
 			<h2>Get</h2>
 			<p>Instruction text here.</p>
@@ -75,59 +74,71 @@
 			<p> Team <span class="teamNameDisplay stageThreeDisplay"></span> will Break-In to the <span class="roomDisplay stageThreeDisplay"></span> using the <span class="gadgetDisplay stagThreeDisplay"></span>.</p>
 			<p id="getTimer"></p> <!-- 3 minute timer countdown -->
 		</div>
-		<div id="stroyPage">
+
+		<div id="stroyPage" style="display:none;">
 			<h2>Story</h2>
 			<p>Instruction text here.</p>
+			<p>Stage One, Break-In: <span class="missionDisplay stageOneDisplay"></span></p>
+			<p>Stage Two, Retrieve: <span class="missionDisplay stageTwoDisplay"></span></p>
+			<p>Stage Three, Escape: <span class="missionDisplay stageThreeDisplay"></span></p>
 			<p id="storyTimer"></p> <!-- 4 minute timer countdown -->
 		</div>
+
 		<div id="trainerPage" style="display:none;">
 			<h2>Trainer</h2>
 			<p>instruction text here.</p>
 			<div>
 				<h3>Team <span class="teamNameDisplay trainerOne"></span></h3>
-				<button id="selectFeedback">Get Peer Feedback</button>
+				<p id="adviceOne"><button id="selectFeedbackOne">Get Peer Feedback</button></p>
 				<input type="number" name="Team One Bonus" id="stageOneBonus">
 			</div>
 			<div>
 				<h3>Team <span class="teamNameDisplay trainerTwo"></span></h3>
-				<button id="selectFeedback">Get Peer Feedback</button>
+				<p id="adviceTwo"><button id="selectFeedbackTwo">Get Peer Feedback</button></p>
 				<input type="number" name="Team Two Bonus" id="stageTwoBonus">
 			</div>
 			<div>
 				<h3>Team <span class="teamNameDisplay trainerThree"></span></h3>
-				<button id="selectFeedback">Get Peer Feedback</button>
+				<p id="adviceThree"><button id="selectFeedbackThree">Get Peer Feedback</button></p>
 				<input type="number" name="Team Three Bonus" id="stageThreeBonus">
 			</div>
 			<button id="trainerProgress"></button>
 		</div>
+
 		<div id="scorePage" style="display:none;">
 			<h2>Score</h2>
 			<div>
 				<h3 class="teamNameDisplay stageOneDisplay"></h3>
 				<p> Break-In Stage</p>
-				<p><span class="missionDisplay stageOneDisplay"></span> for <span class="missionPoints stageOneDisplay"></span> points</p>
-				<p><span class="roomDisplay stageOneDisplay"></span> for <span class="roomPoints stageOneDisplay"></span> points</p>
-				<p><span class="gadgetDisplay stageOneDisplay"></span> for <span class="gadgetPoints stageOneDisplay"></span> points</p>
-				<p>Team bonus <span class="bonusPoints stageOneDisplay"></span> points</p>
-				<p> TOTAL = <span class="totalPoints stageOneDisplay"></span>
+				<ul>
+					<li>Room points: <span class="roomOnePoints"></span></li>
+					<li>Mission points: <span class="missionOnePoints"></span></li>
+					<li>Gadget points: <span class="gadgetOnePoints"></span></li>
+					<li>Bonus points: <span class="bonusOnePoints"></span></li>
+				</ul>
+				<p> TOTAL = <span class="totalOnePoints"></span></p>
 			</div>
 			<div>
 				<h3 class="teamNameDisplay stageTwoDisplay"></h3>
 				<p> Retrieve Stage</p>
-				<p><span class="missionDisplay stageTwoDisplay"></span> for <span class="missionPoints stageTwoDisplay"></span> points</p>
-				<p><span class="roomDisplay stageTwoDisplay"></span> for <span class="roomPoints stageTwoDisplay"></span> points</p>
-				<p><span class="gadgetDisplay stageTwoDisplay"></span> for <span class="gadgetPoints stageTwoDisplay"></span> points</p>
-				<p>Team bonus <span class="bonusPoints stageTwoDisplay"></span> points</p>
-				<p> TOTAL = <span class="totalPoints stageTwoDisplay"></span>
+				<ul>
+					<li>Room points: <span class="roomTwoPoints"></span></li>
+					<li>Mission points: <span class="missionTwoPoints"></span></li>
+					<li>Gadget points: <span class="gadgetTwoPoints"></span></li>
+					<li>Bonus points: <span class="bonusTwoPoints"></span></li>
+				</ul>
+				<p> TOTAL = <span class="totalTwoPoints"></span></p>
 			</div>
 			<div>
 				<h3 class="teamNameDisplay stageThreeDisplay"></h3>
 				<p> Escape Stage</p>
-				<p><span class="missionDisplay stageThreeDisplay"></span> for <span class="missionPoints stageThreeDisplay"></span> points</p>
-				<p><span class="roomDisplay stageThreeDisplay"></span> for <span class="roomPoints stageThreeDisplay"></span> points</p>
-				<p><span class="gadgetDisplay stageThreeDisplay"></span> for <span class="gadgetPoints stageThreeDisplay"></span> points</p>
-				<p>Team bonus <span class="bonusPoints stageThreeDisplay"></span> points</p>
-				<p> TOTAL = <span class="totalPoints stageThreeDisplay"></span>
+				<ul>
+					<li>Room points: <span class="roomThreePoints"></span></li>
+					<li>Mission points: <span class="missionThreePoints"></span></li>
+					<li>Gadget points: <span class="gadgetThreePoints"></span></li>
+					<li>Bonus points: <span class="bonusThreePoints"></span></li>
+				</ul>
+				<p> TOTAL = <span class="totalThreePoints"></span></p>
 			</div>
 		</div>
 

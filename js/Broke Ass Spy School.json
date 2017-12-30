@@ -1,0 +1,853 @@
+{
+  "Rooms": {
+    "1": {
+      "ID": "1",
+      "Front": "Bedroom (5)",
+      "Back": "Desk (5)"
+    },
+    "2": {
+      "ID": "2",
+      "Front": "Kitchen (6)",
+      "Back": "Boardroom (4)"
+    },
+    "3": {
+      "ID": "3",
+      "Front": "Living Room, Den (4)",
+      "Back": "Office (4)"
+    },
+    "4": {
+      "ID": "4",
+      "Front": "Study, Library (5)",
+      "Back": "Kitchen (6)"
+    },
+    "5": {
+      "ID": "5",
+      "Front": "Bathroom (4)",
+      "Back": "Stationary Room (5)"
+    },
+    "6": {
+      "ID": "6",
+      "Front": "Dining Room (4)",
+      "Back": "Open Area or Reception (4)"
+    }
+  },
+  "Mission": {
+    "1": {
+      "ID": "1",
+      "BackText": "Break in",
+      "FaceText": "You got through the window easily, but there is a container on the floor with a toxic gas hissing out of it. How will you avoid being poisoned?",
+      "FaceScore": "4"
+    },
+    "2": {
+      "ID": "2",
+      "BackText": "Break in",
+      "FaceText": "You got into the room, but you find it is completely dark and you can hear ticking. What will you do?",
+      "FaceScore": "4"
+    },
+    "3": {
+      "ID": "3",
+      "BackText": "Break in",
+      "FaceText": "Someone heard you enter the window. They're coming, and it appears there is nowhere to hide. What are you going to do?",
+      "FaceScore": "4"
+    },
+    "4": {
+      "ID": "4",
+      "BackText": "Break in",
+      "FaceText": "You’re standing inside the unlocked door, but now feel the click of a bomb under your foot. What are you going to do?",
+      "FaceScore": "4"
+    },
+    "5": {
+      "ID": "5",
+      "BackText": "Break in",
+      "FaceText": "You're peaking up from the basement hatch and feel something heavy resting on it. How will you open the hatch without breaking the heavy object?",
+      "FaceScore": "4"
+    },
+    "6": {
+      "ID": "6",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "7": {
+      "ID": "7",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "8": {
+      "ID": "8",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "9": {
+      "ID": "9",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "10": {
+      "ID": "10",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "11": {
+      "ID": "11",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "12": {
+      "ID": "12",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "13": {
+      "ID": "13",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "14": {
+      "ID": "14",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "15": {
+      "ID": "15",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "16": {
+      "ID": "16",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "17": {
+      "ID": "17",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "18": {
+      "ID": "18",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "19": {
+      "ID": "19",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "20": {
+      "ID": "20",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "21": {
+      "ID": "21",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "22": {
+      "ID": "22",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "23": {
+      "ID": "23",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "24": {
+      "ID": "24",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "25": {
+      "ID": "25",
+      "BackText": "Break in",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "26": {
+      "ID": "26",
+      "BackText": "Retrieve",
+      "FaceText": "There are two hostages claiming they know the combination to the one-try-only safe where your item is. How will you figure out which is telling the truth?",
+      "FaceScore": "4"
+    },
+    "27": {
+      "ID": "27",
+      "BackText": "Retrieve",
+      "FaceText": "Your item is in a large crate in the room, with the lid nailed down. How will you get it open?",
+      "FaceScore": "4"
+    },
+    "28": {
+      "ID": "28",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is locked in a safe. How will you crack it open?",
+      "FaceScore": "4"
+    },
+    "29": {
+      "ID": "29",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is behind a hidden door. How will you find the door?",
+      "FaceScore": "4"
+    },
+    "30": {
+      "ID": "30",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is being guarded by two growling dogs. How will you get past them?",
+      "FaceScore": "4"
+    },
+    "31": {
+      "ID": "31",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is surrounded by detecting lasers that will set off an alarm. How will you get the item?",
+      "FaceScore": "4"
+    },
+    "32": {
+      "ID": "32",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need to retrieve is behind some thick steel bars. How will you get it out?",
+      "FaceScore": "4"
+    },
+    "33": {
+      "ID": "33",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need to get is locked in an elaborate chest with large chains and locks. How will you get it out?",
+      "FaceScore": "4"
+    },
+    "34": {
+      "ID": "34",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need to retrieve is in a small pool with piranhas swimming around it. How will you get the item?",
+      "FaceScore": "4"
+    },
+    "35": {
+      "ID": "35",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need to retrieve is surrounded by tripwires linked to a bomb. How will you get the item?",
+      "FaceScore": "4"
+    },
+    "36": {
+      "ID": "36",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is tied to a conveyer belt approaching a sharp rotating saw. How will you get it in time?",
+      "FaceScore": "4"
+    },
+    "37": {
+      "ID": "37",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is under one of three boxes. Two boxes will trigger alarms if moved. How will you figure out which box has your item?",
+      "FaceScore": "4"
+    },
+    "38": {
+      "ID": "38",
+      "BackText": "Retrieve",
+      "FaceText": "The item you need is here, but the area is full of smoke. How will you find the item quickly?",
+      "FaceScore": "4"
+    },
+    "39": {
+      "ID": "39",
+      "BackText": "Retrieve",
+      "FaceText": "There are three items that look the same. You can only carry one. How will you figure out which one is the item you need to retrieve?",
+      "FaceScore": "4"
+    },
+    "40": {
+      "ID": "40",
+      "BackText": "Retrieve",
+      "FaceText": "There is a huge boulder on top of the item you need to retrieve. How will you get it from under the rock?",
+      "FaceScore": "4"
+    },
+    "41": {
+      "ID": "41",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "42": {
+      "ID": "42",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "43": {
+      "ID": "43",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "44": {
+      "ID": "44",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "45": {
+      "ID": "45",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "46": {
+      "ID": "46",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "47": {
+      "ID": "47",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "48": {
+      "ID": "48",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "49": {
+      "ID": "49",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "50": {
+      "ID": "50",
+      "BackText": "Retrieve",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "51": {
+      "ID": "51",
+      "BackText": "Escape",
+      "FaceText": "There are bars on the windows and doors, how will you get out?",
+      "FaceScore": "4"
+    },
+    "52": {
+      "ID": "52",
+      "BackText": "Escape",
+      "FaceText": "There is a hungry panther between you and the window, how will you get out?",
+      "FaceScore": "4"
+    },
+    "53": {
+      "ID": "53",
+      "BackText": "Escape",
+      "FaceText": "The locked door has a keypad for unlocking it, how will you get out?",
+      "FaceScore": "4"
+    },
+    "54": {
+      "ID": "54",
+      "BackText": "Escape",
+      "FaceText": "There is a steel door ahead of you, and because you know the owners, there will be another one after that. How will you get out?",
+      "FaceScore": "4"
+    },
+    "55": {
+      "ID": "55",
+      "BackText": "Escape",
+      "FaceText": "There is a iron gate that keeps moving up and down quickly. You’ll certainly be squashed if you attempt to slide through. How will you get out?",
+      "FaceScore": "4"
+    },
+    "56": {
+      "ID": "56",
+      "BackText": "Escape",
+      "FaceText": "All doors are locked, but there is a chimney. How will you get out?",
+      "FaceScore": "4"
+    },
+    "57": {
+      "ID": "57",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "58": {
+      "ID": "58",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "59": {
+      "ID": "59",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "60": {
+      "ID": "60",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "61": {
+      "ID": "61",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "62": {
+      "ID": "62",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "63": {
+      "ID": "63",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "64": {
+      "ID": "64",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "65": {
+      "ID": "65",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "66": {
+      "ID": "66",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "67": {
+      "ID": "67",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "68": {
+      "ID": "68",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "69": {
+      "ID": "69",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "70": {
+      "ID": "70",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "71": {
+      "ID": "71",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "72": {
+      "ID": "72",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "73": {
+      "ID": "73",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "74": {
+      "ID": "74",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    },
+    "75": {
+      "ID": "75",
+      "BackText": "Escape",
+      "FaceText": "TO DO",
+      "FaceScore": "4"
+    }
+  },
+  "Gadget": {
+    "1": {
+      "ID": "1",
+      "Gadget": "Make a wind machine",
+      "Score": "3"
+    },
+    "2": {
+      "ID": "2",
+      "Gadget": "Make a recording device",
+      "Score": "4"
+    },
+    "3": {
+      "ID": "3",
+      "Gadget": "Make a trap",
+      "Score": "3"
+    },
+    "4": {
+      "ID": "4",
+      "Gadget": "Make a bomb",
+      "Score": "4"
+    },
+    "5": {
+      "ID": "5",
+      "Gadget": "Make a trolley",
+      "Score": "3"
+    },
+    "6": {
+      "ID": "6",
+      "Gadget": "Make invisible ink",
+      "Score": "3"
+    },
+    "7": {
+      "ID": "7",
+      "Gadget": "Make a gas mask",
+      "Score": "3"
+    },
+    "8": {
+      "ID": "8",
+      "Gadget": "Make a digging device",
+      "Score": "3"
+    },
+    "9": {
+      "ID": "9",
+      "Gadget": "Make a foaming machine",
+      "Score": "4"
+    },
+    "10": {
+      "ID": "10",
+      "Gadget": "Make an exhaust device",
+      "Score": "3"
+    },
+    "11": {
+      "ID": "11",
+      "Gadget": "Make a rocket launcher",
+      "Score": "4"
+    },
+    "12": {
+      "ID": "12",
+      "Gadget": "Make a communication device",
+      "Score": "3"
+    },
+    "13": {
+      "ID": "13",
+      "Gadget": "Make a fake money detection kit",
+      "Score": "3"
+    },
+    "14": {
+      "ID": "14",
+      "Gadget": "Make a secret listening device",
+      "Score": "3"
+    },
+    "15": {
+      "ID": "15",
+      "Gadget": "Make night vision goggles",
+      "Score": "4"
+    },
+    "16": {
+      "ID": "16",
+      "Gadget": "Make a morse code machine",
+      "Score": "3"
+    },
+    "17": {
+      "ID": "17",
+      "Gadget": "Make a floatation device",
+      "Score": "3"
+    },
+    "18": {
+      "ID": "18",
+      "Gadget": "Make a drone",
+      "Score": "4"
+    },
+    "19": {
+      "ID": "19",
+      "Gadget": "Make a lie detector",
+      "Score": "4"
+    },
+    "20": {
+      "ID": "20",
+      "Gadget": "Make a microscope",
+      "Score": "3"
+    },
+    "21": {
+      "ID": "21",
+      "Gadget": "Make a laser",
+      "Score": "3"
+    },
+    "22": {
+      "ID": "22",
+      "Gadget": "Make a x-ray scanner",
+      "Score": "4"
+    },
+    "23": {
+      "ID": "23",
+      "Gadget": "Make a pulley",
+      "Score": "4"
+    },
+    "24": {
+      "ID": "24",
+      "Gadget": "Make a compass",
+      "Score": "4"
+    },
+    "25": {
+      "ID": "25",
+      "Gadget": "Make a stethoscope",
+      "Score": "4"
+    },
+    "26": {
+      "ID": "26",
+      "Gadget": "Make a grappling hook",
+      "Score": "3"
+    },
+    "27": {
+      "ID": "27",
+      "Gadget": "Make binoculars",
+      "Score": "3"
+    },
+    "28": {
+      "ID": "28",
+      "Gadget": "Make a bug detector",
+      "Score": "3"
+    },
+    "29": {
+      "ID": "29",
+      "Gadget": "Make an alarm",
+      "Score": "3"
+    },
+    "30": {
+      "ID": "30",
+      "Gadget": "Make a bow and arrow",
+      "Score": "3"
+    },
+    "31": {
+      "ID": "31",
+      "Gadget": "Make a lock picker",
+      "Score": "3"
+    },
+    "32": {
+      "ID": "32",
+      "Gadget": "Make a smoke bomb",
+      "Score": "4"
+    },
+    "33": {
+      "ID": "33",
+      "Gadget": "Make a fingerprinting kit",
+      "Score": "3"
+    },
+    "34": {
+      "ID": "34",
+      "Gadget": "Make a decoder device",
+      "Score": "3"
+    },
+    "35": {
+      "ID": "35",
+      "Gadget": "Make a lever",
+      "Score": "4"
+    },
+    "36": {
+      "ID": "36",
+      "Gadget": "Make an underwater breathing device",
+      "Score": "3"
+    }
+  },
+  "Trainer": {
+    "1": {
+      "ID": "1",
+      "Advice": "Include a comment on how they could have used ancient karate"
+    },
+    "2": {
+      "ID": "2",
+      "Advice": "Include a comment on how it is important to drink milk before a mission"
+    },
+    "3": {
+      "ID": "3",
+      "Advice": "Include a comment on how they could have used oranges"
+    },
+    "4": {
+      "ID": "4",
+      "Advice": "Include a comment on their calculator-like accuracy"
+    },
+    "5": {
+      "ID": "5",
+      "Advice": "Include a comment on their impressive ninja-like ability"
+    },
+    "6": {
+      "ID": "6",
+      "Advice": "Include a comment on their respectful adherence to the Rules of Spies Book Volume 2"
+    },
+    "7": {
+      "ID": "7",
+      "Advice": "Include a comment on their lack of turtlenecks"
+    },
+    "8": {
+      "ID": "8",
+      "Advice": "Include a comment on their incredible spy-like elbows"
+    },
+    "9": {
+      "ID": "9",
+      "Advice": "Include a comment on the tactical use of sideways glances"
+    },
+    "10": {
+      "ID": "10",
+      "Advice": "Include a comment on their clever employment of Spy Protocol No. 45"
+    },
+    "11": {
+      "ID": "11",
+      "Advice": "Include a comment on their spy-like hair"
+    },
+    "12": {
+      "ID": "12",
+      "Advice": "Include a comment on how they should have had their names sewn into their underpants"
+    },
+    "13": {
+      "ID": "13",
+      "Advice": "Include a comment on their ability hide behind bushes when necessary"
+    },
+    "14": {
+      "ID": "14",
+      "Advice": "Include a comment on the time you battled snakes during a mission"
+    },
+    "15": {
+      "ID": "15",
+      "Advice": "Include a comment on their left-hair-part skills"
+    },
+    "16": {
+      "ID": "16",
+      "Advice": "Include a comment on their tactical use of gingerbread"
+    },
+    "17": {
+      "ID": "17",
+      "Advice": "Include a comment on the effect of gravity on the mission"
+    },
+    "18": {
+      "ID": "18",
+      "Advice": "Include a comment on their clever use of vegetables"
+    },
+    "19": {
+      "ID": "19",
+      "Advice": "Include a comment on the importance of a good breakfast"
+    },
+    "20": {
+      "ID": "20",
+      "Advice": "Include a comment on the importance of subverting the laws the physics"
+    },
+    "21": {
+      "ID": "21",
+      "Advice": "Include a comment on how Patchouli incense may have helped"
+    },
+    "22": {
+      "ID": "22",
+      "Advice": "Include a comment on the need for more pizza in the mission"
+    },
+    "23": {
+      "ID": "23",
+      "Advice": "Include a comment on their ingenuity during the mission climax"
+    },
+    "24": {
+      "ID": "24",
+      "Advice": "Include a comment on the need to wear comfortable socks"
+    },
+    "25": {
+      "ID": "25",
+      "Advice": "Include a comment on how cupcakes are yummy"
+    },
+    "26": {
+      "ID": "26",
+      "Advice": "Include a comment on how they could have used bubbles"
+    },
+    "27": {
+      "ID": "27",
+      "Advice": "Include a comment on the need for more balloons"
+    },
+    "28": {
+      "ID": "28",
+      "Advice": "Include a comment on the need to use their eyebrows more"
+    },
+    "29": {
+      "ID": "29",
+      "Advice": "Include a comment on the need for more explosions"
+    },
+    "30": {
+      "ID": "30",
+      "Advice": "Include a comment on their lack of bean bags"
+    },
+    "31": {
+      "ID": "31",
+      "Advice": "Include a comment on how candy would have helped"
+    },
+    "32": {
+      "ID": "32",
+      "Advice": "Include a comment on how well they used telepathy"
+    },
+    "33": {
+      "ID": "33",
+      "Advice": "Include a comment on how their mission reminded you of moonlight on the water"
+    },
+    "34": {
+      "ID": "34",
+      "Advice": "Include a comment on their clever use of vowels"
+    },
+    "35": {
+      "ID": "35",
+      "Advice": "Include a comment on the sophisticated use of their toes"
+    },
+    "36": {
+      "ID": "36",
+      "Advice": "Include a comment on their ingenious use of the breeze"
+    },
+    "37": {
+      "ID": "37",
+      "Advice": "Include a comment on how their nostrils were very professional"
+    },
+    "38": {
+      "ID": "38",
+      "Advice": "Include a comment on their tactical use of collage"
+    },
+    "39": {
+      "ID": "39",
+      "Advice": "Include a comment on how next time they should do rhythmic blinking"
+    },
+    "40": {
+      "ID": "40",
+      "Advice": "Include a comment on how the most elegant people keep their toenails short"
+    },
+    "41": {
+      "ID": "41",
+      "Advice": "Include a comment on how you dreamt last night of being a lamp, a very still lamp"
+    },
+    "42": {
+      "ID": "42",
+      "Advice": "Include a comment on how we should all get cheaper Spy Insurance once we've graduated"
+    },
+    "43": {
+      "ID": "43",
+      "Advice": "Include a comment on how the use of more plaid would have helped"
+    },
+    "44": {
+      "ID": "44",
+      "Advice": "Include a comment on how they need to make sure they pee before going on a mission"
+    },
+    "45": {
+      "ID": "45",
+      "Advice": "Include a comment on your preferred duration of tooth-brushing time"
+    },
+    "": {
+      "Advice": "45"
+    }
+  }
+}
