@@ -10,14 +10,6 @@ var teamOneSelected = '';
 var teamTwoSelected = '';
 var teamThreeSelected = '';
 
-var roomsHeadings = '<tr><th>Front Room</th><th>Points</th><th>Back Room</th><th>Points</th></tr>';
-var roomsDetails = '';
-
-var gadgetsHeadings = '<tr><th>Break-In Gadget Selection</th><th>Retrieve Gadget Selection</th><th>Escape Gadget Selection</th>';
-var gadgetsDetails = '';
-
-console.log('initial variables defined')
-
 // define asynchronous functions
 // JSON details
 function loadJSON(callback) {
@@ -39,67 +31,70 @@ loadJSON(function(response) {
 	missionData = importData.Mission;
 	gadgetData = importData.Gadget;
 	trainerData = importData.Trainer;
-	console.log('JSON data imported')
 });
 
 // Process and display rooms
 function prepareRooms() {
-	for (i = 1; i < 6; i++) { // IMPORTANT: this should be updated to allow dynamic handling of how many options are available
-		var row = roomsData[i];
-		var front = row.Front;
-		var frontRoom = front.spilt(' ');
-		var frontRoomName = frontRoom[0];
-		var frontRoomPoints = frontRoom[1][1];
-		var backRoom = row.Back;
-		var backRoomName = backRoom.spilt(' ')[0];
-		var backRoomPoints = backRoom.split(' ')[1][1];
-		/*var frontRoomName = roomsData[i].Front.spilt(' ')[0];
-		var frontRoomPoints = roomsData[i].Front.split(' ')[1][1];
-		var backRoomName = roomsData[i].Back.spilt(' ')[0];
-		var backRoomPoints = roomsData[i].Back.split(' ')[1][1];*/
-		console.log('front room: ' + frontRoomName + ' points: ' + frontRoomPoints + ', back room: ' + backRoomName + 'points: ' + backRoomPoints);
-		roomsDetails += '<tr><td>' + frontRoomName + '</td><td>' + frontRoomPoints + '</td><td><button id="1_F' + i + '" class="teamOneBtn">' + teamOneName + '</button><button id="2_F' + i + '" class="teamTwoBtn">' + teamTwoName + '</button><button id="3_F' + i + '" class="teamThreeBtn">' + teamThreeName + '</button></td><td>' + backRoomName + '</button></td><td>' + backRoomPoints + '</td><td><button id="1_B' + i + '" class="teamOneBtn">' + teamOneName + '</button><button id="2_B' + i + '" class="teamTwoBtn">' + teamTwoName + '</button><button id="3_B' + i + '" class="teamThreeBtn">' + teamThreeName + '</button></td></tr>';
-	};
+	for (i = 1; i <= 6; i++) { // IMPORTANT: this should be updated to allow dynamic handling of how many options are available
+		
+		var teamOne_Name = Cookies.get('teamOneName');
+		var teamTwo_Name = Cookies.get('teamTwoName');
+		var teamThree_Name = Cookies.get('teamThreeName');
 
-	$('#roomsTable').html(roomsHeadings + roomsDetails);
+		var frontRoomName = roomsData[i].Front.split(' (')[0];
+		var frontRoomPoints = roomsData[i].Front.split(' (')[1][0];
+		var backRoomName = roomsData[i].Back.split(' (')[0];
+		var backRoomPoints = roomsData[i].Back.split(' (')[1][0];
+
+		$('.roomName' + i + '.front').html(frontRoomName);
+		$('.roomPoints' + i + '.front').html(frontRoomPoints);
+		$('.' + i + 'f.teamOneBtn').html(teamOne_Name).attr('id', 'F' + i);
+		$('.' + i + 'f.teamTwoBtn').html(teamTwo_Name).attr('id', 'F' + i);
+		$('.' + i + 'f.teamThreeBtn').html(teamThree_Name).attr('id', 'F' + i);
+
+		$('.roomName' + i + '.back').html(backRoomName);
+		$('.roomPoints' + i + '.back').html(backRoomPoints);
+		$('.' + i + 'b.teamOneBtn').html(teamOne_Name).attr('id', 'B' + i);
+		$('.' + i + 'b.teamTwoBtn').html(teamTwo_Name).attr('id', 'B' + i);
+		$('.' + i + 'b.teamThreeBtn').html(teamThree_Name).attr('id', 'B' + i);
+	};
 };
 
 // Select and display random gadgets
 function prepareGadgets() {
-	for (a = 1; a < 6; a++) {
-		gadgetsDetails += '<tr>';
-		for (e = 1; e < 3; e++) {
+	for (a = 1; a <= 6; a++) {
+		for (e = 1; e <= 3; e++) {
 			var diceResult = Math.floor(Math.random() * 35) +1; // IMPORTANT: this should be updated to allow dynamic handling of how many options are available
 			var row = gadgetData[diceResult];
 			var gadgetName = row.Gadget;
 			var gadgetPoints = row.Score;
-			console.log('stage ' + e + ', gadget ' + a + ': ' + diceResult);
-			gadgetsDetails += '<td><button id="' + diceResult + '" class="stageBtn_' + e + '">' + gadgetName + '</button><p> Points: ' + gadgetPoints + '</p></td>';
+			var btnID = '.stageBtn_' + e;
+			var discID = '.stageDisc_' + e;
+			var gadgetID = '.g' + a;
+			$('.stageBtn_' + e + '.g' + a).html(gadgetName);
+			$('.stageBtn_' + e + '.g' + a).attr('id', diceResult);
+			$('.stageDisc_' + e + '.g' + a).html('Points: ' + gadgetPoints);
 		};
-		gadgetsDetails += '</tr>';
 	};
-
-	$('#gadgetTable').html(gadgetsHeadings + gadgetsDetails);
 };
 
 // define story timer
 function storyTimer(minutes, seconds) {
 	var x = setInterval(function() {
 		$('#storyTimer').html(minutes + 'm ' + seconds + 's');
-
-		console.log('story timer: ' + minutes + 'm ' + seconds + 's');
-		
+			
 		if (minutes > 0 && seconds == 0) {
 			minutes -= 1;
-			seconds = 59
+			seconds = 59;
 		} else if (seconds > 0) {
 			seconds -= 1;
 		} else if (minutes == 0 && seconds == 0) {
-			clearInterval(x)
+			clearInterval(x);
 			$('#storyPage').hide();
 			$('#trainerPage').show();
+			prepareChoices('trainerPage');
 		} else {
-			clearInterval(x)
+			clearInterval(x);
 			console.log('story timer error: ' + minutes + 'm ' + seconds + 's');
 		};
 	}, 1000);
@@ -108,23 +103,21 @@ function storyTimer(minutes, seconds) {
 // Define get timer
 function getTimer(minutes, seconds) {
 	var x = setInterval(function() {
-		$('#getTimer').html(minutes + 'm ' + seconds + 's');
-
-		console.log('get timer: ' + minutes + 'm ' + seconds + 's');
+		$('#getTimer').html(minutes + 'm ' + seconds + 's'); // actual Get timer
 		
 		if (minutes > 0 && seconds == 0) {
 			minutes -= 1;
-			seconds = 59
+			seconds = 59;
 		} else if (seconds > 0) {
 			seconds -= 1;
 		} else if (minutes == 0 && seconds == 0) {
-			clearInterval(x)
+			clearInterval(x);
 			$('#getPage').hide();
 			prepareChoices('storyPage');
 			$('#storyPage').show();
 			storyTimer(4,0);
 		} else {
-			clearInterval(x)
+			clearInterval(x);
 			console.log('get timer error: ' + minutes + 'm ' + seconds + 's');
 		};
 	}, 1000);
@@ -149,18 +142,15 @@ $('#setTeamNames').on('click touch', function() {
 
 // Set selected rooms
 $('.teamOneBtn').on('click touch', function() {
-	teamOneSelected = $(this).id();
-	teamOneSelected = teamOneSelected.split('_')[1];
+	teamOneSelected = this.id;
 });
 
 $('.teamTwoBtn').on('click touch', function() {
-	teamTwoSelected = $(this).id();
-	teamTwoSelected = teamTwoSelected.split('_')[1];
+	teamTwoSelected = this.id;
 });
 
 $('.teamThreeBtn').on('click touch', function() {
-	teamThreeSelected = $(this).id();
-	teamThreeSelected = teamThreeSelected.split('_')[1];
+	teamThreeSelected = this.id;
 });
 
 // Save room selections to cookie and proceed to Missions page
@@ -211,23 +201,23 @@ $('#setTeamMissions').on('click touch', function() {
 	Cookies.set('stageThreeTeam', $('#stageThreeTeamSelect').val());
 
 	$('#missionsPage').hide();
-	$('#gadgetsPage').show();
 	prepareGadgets();
+	$('#gadgetsPage').show();
 });
 
 // Save Break-In gadget selection to cookie
 $('.stageBtn_1').on('click touch', function() {
-	Cookies.set('stageOneGadget', $(this.id()));
+	Cookies.set('stageOneGadget', this.id);
 });
 
 // Save Retrieve gadget selection to cookie
 $('.stageBtn_2').on('click touch', function() {
-	Cookies.set('stageTwoGadget', $(this.id()));
+	Cookies.set('stageTwoGadget', this.id);
 });
 
 // Save Escape gadget selection to cookie
 $('.stageBtn_3').on('click touch', function() {
-	Cookies.set('stageThreeGadget', $(this.id()));
+	Cookies.set('stageThreeGadget', this.id);
 });
 
 // proceed to next page
@@ -235,7 +225,7 @@ $('#gadgetProgress').on('click touch', function() {
 	$('#gadgetsPage').hide();
 	prepareChoices('getPage');
 	$('#getPage').show();
-	prepareTimer(3,0);
+	getTimer(3,0);
 });
 
 // Call cookies to populate variables
@@ -266,94 +256,94 @@ function prepareChoices(page) {
 
 	// convert team rooms to stage rooms
 	if (stageOne_Team == teamOne_Name) {
-		var roomside = teamOne_Room[0];
+		var roomSide = teamOne_Room[0];
 		var roomID = teamOne_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageOne_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageOne_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageOne_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageOne_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	} else if (stageOne_Team == teamTwo_Name) {
-		var roomside = teamTwo_Room[0];
+		var roomSide = teamTwo_Room[0];
 		var roomID = teamTwo_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageOne_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageOne_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageOne_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageOne_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	} else {
-		var roomside = teamThree_Room[0];
+		var roomSide = teamThree_Room[0];
 		var roomID = teamThree_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageOne_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageOne_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageOne_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageOne_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	};
 	if (stageTwo_Team == teamOne_Name) {
-		var roomside = teamOne_Room[0];
+		var roomSide = teamOne_Room[0];
 		var roomID = teamOne_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageTwo_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageTwo_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageTwo_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageTwo_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	} else if (stageTwo_Team == teamTwo_Name) {
-		var roomside = teamTwo_Room[0];
+		var roomSide = teamTwo_Room[0];
 		var roomID = teamTwo_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageTwo_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageTwo_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageTwo_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageTwo_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	} else {
-		var roomside = teamThree_Room[0];
+		var roomSide = teamThree_Room[0];
 		var roomID = teamThree_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageTwo_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageTwo_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageTwo_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageTwo_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	};
 	if (stageThree_Team == teamOne_Name) {
-		var roomside = teamOne_Room[0];
+		var roomSide = teamOne_Room[0];
 		var roomID = teamOne_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageThree_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageThree_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageThree_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageThree_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	} else if (stageThree_Team == teamTwo_Name) {
-		var roomside = teamTwo_Room[0];
+		var roomSide = teamTwo_Room[0];
 		var roomID = teamTwo_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageThree_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageThree_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageThree_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageThree_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
 	} else {
-		var roomside = teamThree_Room[0];
+		var roomSide = teamThree_Room[0];
 		var roomID = teamThree_Room[1];
-		if (roomSide == 'f') {
+		if (roomSide == 'F') {
 			stageThree_RoomName = roomsData[roomID].Front.split('(')[0];
 			stageThree_RoomPoints = roomsData[roomID].Front.split('(')[1][0];
-		} else if (roomSide == 'b') {
+		} else if (roomSide == 'B') {
 			stageThree_RoomName = roomsData[roomID].Back.split('(')[0];
 			stageThree_RoomPoints = roomsData[roomID].Back.split('(')[1][0];
 		};
@@ -362,25 +352,35 @@ function prepareChoices(page) {
 	if (page == 'getPage') {
 		// Fill in choices on Get page
 		$('.stageOneDisplay.teamNameDisplay').html(stageOne_Team);
-		$('.stageOneDisplay.roomDisplay').html(stageOne_Room);
-		$('.stageOneDisplay.gadgetDisplay').html(stageOne_Gadget);
+		$('.stageOneDisplay.roomDisplay').html(stageOne_RoomName);
 
 		$('.stageTwoDisplay.teamNameDisplay').html(stageTwo_Team);
-		$('.stageTwoDisplay.roomDisplay').html(stageTwo_Room);
-		$('.stageTwoDisplay.gadgetDisplay').html(stageTwo_Gadget);
+		$('.stageTwoDisplay.roomDisplay').html(stageTwo_RoomName);
 
 		$('.stageThreeDisplay.teamNameDisplay').html(stageThree_Team);
-		$('.stageThreeDisplay.roomDisplay').html(stageThree_Room);
-		$('.stageThreeDisplay.gadgetDisplay').html(stageThree_Gadget);
+		$('.stageThreeDisplay.roomDisplay').html(stageThree_RoomName);
 	} else if (page == 'storyPage') {
 		var stageOne_Mission = Cookies.get('stageOneMission');
 		var stageTwo_Mission = Cookies.get('stageTwoMission');
 		var stageThree_Mission = Cookies.get('stageThreeMission');
 
+		var descriptor = ['instinctively','creatively','boldly','intuitively','quickly','hurredly','thoughtfully','classily','smartly','cautiously','dicretely'];
+		var randOne = Math.round(Math.random() * descriptor.length);
+		var randTwo = Math.round(Math.random() * descriptor.length);
+		var randThree = Math.round(Math.random() * descriptor.length);
+
 		// Fill in choices on the Story page
-		$('.stageOneDisplay.missionDisplay').html(stageOne_Mission);
-		$('.stageTwoDisplay.missionDisplay').html(stageTwo_Mission);
-		$('.stageThreeDisplay.missionDisplay').html(stageThree_Mission);
+		$('.stageOneDisplay.missionDisplay').html(missionData[stageOne_Mission].FaceText);
+		$('.stageTwoDisplay.missionDisplay').html(missionData[stageTwo_Mission].FaceText);
+		$('.stageThreeDisplay.missionDisplay').html(missionData[stageThree_Mission].FaceText);
+
+		$('.stageOneDisplay.gadgetDisplay').html(gadgetData[stageOne_Gadget].Gadget);
+		$('.stageTwoDisplay.gadgetDisplay').html(gadgetData[stageTwo_Gadget].Gadget);
+		$('.stageThreeDisplay.gadgetDisplay').html(gadgetData[stageThree_Gadget].Gadget);
+
+		$('#d1').html(descriptor[randOne]);
+		$('#d2').html(descriptor[randTwo]);
+		$('#d3').html(descriptor[randThree]);
 	} else if ( page == 'trainerPage') {
 		// Fill in team names on Trainer page
 		$('.trainerOne.teamNameDisplay').html(teamOne_Name);
@@ -400,21 +400,21 @@ function prepareChoices(page) {
 		$('.missionOnePoints').html(missionData[stageOne_Mission].FaceScore);
 		$('.gadgetOnePoints').html(gadgetData[stageOne_Gadget].Score);
 		$('.bonusOnePoints').html(stageOne_Bonus);
-		var totalOne = $('.roomOnePoints').html() + $('.missionOnePoints').html() + $('.gadgetOnePoints').html() + $('.bonusOnePoints').html();
+		var totalOne = Number($('.roomOnePoints').html()) + Number($('.missionOnePoints').html()) + Number($('.gadgetOnePoints').html()) + Number($('.bonusOnePoints').html());
 		$('.totalOnePoints').html(totalOne);
 
 		$('.roomTwoPoints').html(stageTwo_RoomPoints);
 		$('.missionTwoPoints').html(missionData[stageTwo_Mission].FaceScore);
 		$('.gadgetTwoPoints').html(gadgetData[stageTwo_Gadget].Score);
 		$('.bonusTwoPoints').html(stageTwo_Bonus);
-		var totalTwo = $('.roomTwoPoints').html() + $('.missionTwoPoints').html() + $('.gadgetTwoPoints').html() + $('.bonusTwoPoints').html();
+		var totalTwo = Number($('.roomTwoPoints').html()) + Number($('.missionTwoPoints').html()) + Number($('.gadgetTwoPoints').html()) + Number($('.bonusTwoPoints').html());
 		$('.totalTwoPoints').html(totalTwo);
 
 		$('.roomThreePoints').html(stageThree_RoomPoints);
 		$('.missionThreePoints').html(missionData[stageThree_Mission].FaceScore);
 		$('.gadgetThreePoints').html(gadgetData[stageThree_Gadget].Score);
 		$('.bonusThreePoints').html(stageThree_Bonus);
-		var totalThree = $('.roomThreePoints').html() + $('.missionThreePoints').html() + $('.gadgetThreePoints').html() + $('.bonusThreePoints').html();
+		var totalThree = Number($('.roomThreePoints').html()) + Number($('.missionThreePoints').html()) + Number($('.gadgetThreePoints').html()) + Number($('.bonusThreePoints').html());
 		$('.totalThreePoints').html(totalThree);
 	};
 };
@@ -435,11 +435,11 @@ $('#selectFeedbackOne').on('click touch', function() {
 	var feedback = Math.floor(Math.random() * 44) + 1;
 	$('#adviceOne').html(trainerData[feedback].Advice);
 });
-$('#selectFeedbackOne').on('click touch', function() {
+$('#selectFeedbackTwo').on('click touch', function() {
 	var feedback = Math.floor(Math.random() * 44) + 1;
 	$('#adviceTwo').html(trainerData[feedback].Advice);
 });
-$('#selectFeedbackOne').on('click touch', function() {
+$('#selectFeedbackThree').on('click touch', function() {
 	var feedback = Math.floor(Math.random() * 44) + 1;
 	$('#adviceThree').html(trainerData[feedback].Advice);
 });

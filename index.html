@@ -27,7 +27,112 @@
 		<div id="roomsPage" style="display:none;">
 			<h2>Rooms</h2>
 			<p>Instruction text here.</p>
-			<table id="roomsTable"></table>
+			<table id="roomsTable">
+				<tr>
+					<th>Front Room</th>
+					<th>Points</th>
+					<th></th>
+					<th>Back Room</th>
+					<th>Points</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td class="roomName1 front"></td>
+					<td class="roomPoints1 front"></td>
+					<td class="roomBtns1 front">
+						<button class="1f teamOneBtn"></button>
+						<button class="1f teamTwoBtn"></button>
+						<button class="1f teamThreeBtn"></button>
+					</td>
+					<td class="roomName1 back"></td>
+					<td class="roomPoints1 back"></td>
+					<td class="roomBtns1 back">
+						<button class="1b teamOneBtn"></button>
+						<button class="1b teamTwoBtn"></button>
+						<button class="1b teamThreeBtn"></button>
+					</td>
+				</tr>
+				<tr>
+					<td class="roomName2 front"></td>
+					<td class="roomPoints2 front"></td>
+					<td class="roomBtns2 front">
+						<button class="2f teamOneBtn"></button>
+						<button class="2f teamTwoBtn"></button>
+						<button class="2f teamThreeBtn"></button>
+					</td>
+					<td class="roomName2 back"></td>
+					<td class="roomPoints2 back"></td>
+					<td class="roomBtns2 back">
+						<button class="2b teamOneBtn"></button>
+						<button class="2b teamTwoBtn"></button>
+						<button class="2b teamThreeBtn"></button>
+					</td>
+				</tr>
+				<tr>
+					<td class="roomName3 front"></td>
+					<td class="roomPoints3 front"></td>
+					<td class="roomBtns3 front">
+						<button class="3f teamOneBtn"></button>
+						<button class="3f teamTwoBtn"></button>
+						<button class="3f teamThreeBtn"></button>
+					</td>
+					<td class="roomName3 back"></td>
+					<td class="roomPoints3 back"></td>
+					<td class="roomBtns3 back">
+						<button class="3b teamOneBtn"></button>
+						<button class="3b teamTwoBtn"></button>
+						<button class="3b teamThreeBtn"></button>
+					</td>
+				</tr>
+				<tr>
+					<td class="roomName4 front"></td>
+					<td class="roomPoints4 front"></td>
+					<td class="roomBtns4 front">
+						<button class="4f teamOneBtn"></button>
+						<button class="4f teamTwoBtn"></button>
+						<button class="4f teamThreeBtn"></button>
+					</td>
+					<td class="roomName4 back"></td>
+					<td class="roomPoints4 back"></td>
+					<td class="roomBtns4 back">
+						<button class="4b teamOneBtn"></button>
+						<button class="4b teamTwoBtn"></button>
+						<button class="4b teamThreeBtn"></button>
+					</td>
+				</tr>
+				<tr>
+					<td class="roomName5 front"></td>
+					<td class="roomPoints5 front"></td>
+					<td class="roomBtns5 front">
+						<button class="5f teamOneBtn"></button>
+						<button class="5f teamTwoBtn"></button>
+						<button class="5f teamThreeBtn"></button>
+					</td>
+					<td class="roomName5 back"></td>
+					<td class="roomPoints5 back"></td>
+					<td class="roomBtns5 back">
+						<button class="5b teamOneBtn"></button>
+						<button class="5b teamTwoBtn"></button>
+						<button class="5b teamThreeBtn"></button>
+					</td>
+				</tr>
+				<tr>
+					<td class="roomName6 front"></td>
+					<td class="roomPoints6 front"></td>
+					<td class="roomBtns6 front">
+						<button class="6f teamOneBtn"></button>
+						<button class="6f teamTwoBtn"></button>
+						<button class="6f teamThreeBtn"></button>
+					</td>
+					<td class="roomName6 back"></td>
+					<td class="roomPoints6 back"></td>
+					<td class="roomBtns6 back">
+						<button class="6b teamOneBtn"></button>
+						<button class="6b teamTwoBtn"></button>
+						<button class="6b teamThreeBtn"></button>
+					</td>
+				</tr>
+			</table>
 			<img src="img/progression_2.png"> <!-- progression bar image -->
 			<button id="setTeamRooms">Next</button>
 		</div>
@@ -39,49 +144,85 @@
 				<p>Instruction text here.</p>
 				<select name="stageOneTeam" id="stageOneTeamSelect" class="stageTeamSelect"></select>
 				<img src="img/dice.png" id="stageOneDice">
-				<p id="stadeOneDescription"></p>
+				<p id="stageOneDescription"></p>
 			</div>
 			<div>
 				<h3>Retrieve Mission</h3>
 				<p>Instruction text here.</p>
 				<select name="stageTwoTeam" id="stageTwoTeamSelect" class="stageTeamSelect"></select>
 				<img src="img/dice.png" id="stageTwoDice">
-				<p id="stadeTwoDescription"></p>
+				<p id="stageTwoDescription"></p>
 			</div>
 			<div>
 				<h3>Escape Mission</h3>
 				<p>Instruction text here.</p>
 				<select name="stageThreeTeam" id="stageThreeTeamSelect" class="stageTeamSelect"></select>
 				<img src="img/dice.png" id="stageThreeDice">
-				<p id="stadeThreeDescription"></p>
+				<p id="stageThreeDescription"></p>
 			</div>
 			<img src="img/progression_3.png"> <!-- progression bar image -->
 			<button id="setTeamMissions">Next</button>
 		</div>
 
-		<div id="gadgetPage" style="display:none;">
+		<div id="gadgetsPage" style="display:none;">
 			<h2>Gadgets</h2>
-			<table id="gadgetTable"></table>
-			<img src="img/progression_4.png"> <!-- progression bar image -->
+			<table id="gadgetTable">
+				<tr>
+					<th>Break-In Gadget Selection</th>
+					<th>Retrieve Gadget Selection</th>
+					<th>Escape Gadget Selection</th>
+				</tr>
+				<tr>
+					<td><button class="stageBtn_1 g1"></button><p class="stageDisc_1 g1"></p></td>
+					<td><button class="stageBtn_2 g1"></button><p class="stageDisc_2 g1"></p></td>
+					<td><button class="stageBtn_3 g1"></button><p class="stageDisc_3 g1"></p></td>
+				</tr>
+				<tr>
+					<td><button class="stageBtn_1 g2"></button><p class="stageDisc_1 g2"></p></td>
+					<td><button class="stageBtn_2 g2"></button><p class="stageDisc_2 g2"></p></td>
+					<td><button class="stageBtn_3 g2"></button><p class="stageDisc_3 g2"></p></td>
+				</tr>
+				<tr>
+					<td><button class="stageBtn_1 g3"></button><p class="stageDisc_1 g3"></p></td>
+					<td><button class="stageBtn_2 g3"></button><p class="stageDisc_2 g3"></p></td>
+					<td><button class="stageBtn_3 g3"></button><p class="stageDisc_3 g3"></p></td>
+				</tr>
+				<tr>
+					<td><button class="stageBtn_1 g4"></button><p class="stageDisc_1 g4"></p></td>
+					<td><button class="stageBtn_2 g4"></button><p class="stageDisc_2 g4"></p></td>
+					<td><button class="stageBtn_3 g4"></button><p class="stageDisc_3 g4"></p></td>
+				</tr>
+				<tr>
+					<td><button class="stageBtn_1 g5"></button><p class="stageDisc_1 g5"></p></td>
+					<td><button class="stageBtn_2 g5"></button><p class="stageDisc_2 g5"></p></td>
+					<td><button class="stageBtn_3 g5"></button><p class="stageDisc_3 g5"></p></td>
+				</tr>
+				<tr>
+					<td><button class="stageBtn_1 g6"></button><p class="stageDisc_1 g6"></p></td>
+					<td><button class="stageBtn_2 g6"></button><p class="stageDisc_2 g6"></p></td>
+					<td><button class="stageBtn_3 g6"></button><p class="stageDisc_3 g6"></p></td>
+				</tr>
+			</table>
+			<img src="img/progression_4.png">
 			<button id="gadgetProgress">Next</button>
 		</div>
 
 		<div id="getPage" style="display:none;">
 			<h2>Get</h2>
 			<p>Instruction text here.</p>
-			<p> Team <span class="teamNameDisplay stageOneDisplay"></span> will Break-In to the <span class="roomDisplay stageOneDisplay"></span> using the <span class="gadgetDisplay stageOneDisplay"></span>.</p>
-			<p> Team <span class="teamNameDisplay stageTwoDisplay"></span> will Break-In to the <span class="roomDisplay stageTwoDisplay"></span> using the <span class="gadgetDisplay stageTwoDisplay"></span>.</p>
-			<p> Team <span class="teamNameDisplay stageThreeDisplay"></span> will Break-In to the <span class="roomDisplay stageThreeDisplay"></span> using the <span class="gadgetDisplay stagThreeDisplay"></span>.</p>
-			<p id="getTimer"></p> <!-- 3 minute timer countdown -->
+			<p> Team <span class="teamNameDisplay stageOneDisplay"></span> will Break-In to the <span class="roomDisplay stageOneDisplay"></span>.</p>
+			<p> Team <span class="teamNameDisplay stageTwoDisplay"></span> will Retrive an item from the <span class="roomDisplay stageTwoDisplay"></span>.</p>
+			<p> Team <span class="teamNameDisplay stageThreeDisplay"></span> will Escape through the <span class="roomDisplay stageThreeDisplay"></span>.</p>
+			<p id="getTimer"></p>
 		</div>
 
-		<div id="stroyPage" style="display:none;">
+		<div id="storyPage" style="display:none;">
 			<h2>Story</h2>
 			<p>Instruction text here.</p>
-			<p>Stage One, Break-In: <span class="missionDisplay stageOneDisplay"></span></p>
-			<p>Stage Two, Retrieve: <span class="missionDisplay stageTwoDisplay"></span></p>
-			<p>Stage Three, Escape: <span class="missionDisplay stageThreeDisplay"></span></p>
-			<p id="storyTimer"></p> <!-- 4 minute timer countdown -->
+			<p>Stage One, Break-In: <span class="missionDisplay stageOneDisplay"></span>. The team <span id="d1"></span>: <span class="gadgetDisplay stageOneDisplay"></span>.</p>
+			<p>Stage Two, Retrieve: <span class="missionDisplay stageTwoDisplay"></span>. The team <span id="d2"></span>: <span class="gadgetDisplay stageTwoDisplay"></span>.</p>
+			<p>Stage Three, Escape: <span class="missionDisplay stageThreeDisplay"></span>. The team <span id="d3"></span>: <span class="gadgetDisplay stageThreeDisplay"></span>.</p>
+			<p id="storyTimer"></p>
 		</div>
 
 		<div id="trainerPage" style="display:none;">
@@ -102,7 +243,7 @@
 				<p id="adviceThree"><button id="selectFeedbackThree">Get Peer Feedback</button></p>
 				<input type="number" name="Team Three Bonus" id="stageThreeBonus">
 			</div>
-			<button id="trainerProgress"></button>
+			<button id="trainerProgress">Next</button>
 		</div>
 
 		<div id="scorePage" style="display:none;">
